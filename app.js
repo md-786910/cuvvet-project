@@ -36,8 +36,7 @@ const aiscoreNumber = document.querySelector(".aiscore__number");
 
 if (localStorage.getItem("score")) {
   let humanScore = parseInt(localStorage.getItem("score") || "0");
-  console.log(humanScore);
-  console.log(typeof humanScore);
+
   scoreNumber.textContent = humanScore;
 } else {
   localStorage.setItem("score", 0);
@@ -125,13 +124,13 @@ function keepScore(point) {
       "score",
       parseInt(localStorage.getItem("score")) + point
     );
-    scoreNumber.innerText = localStorage.getItem("score");
+    scoreNumber.innerText = parseInt(localStorage.getItem("score"));
   } else {
     localStorage.setItem(
       "aiscore",
       parseInt(localStorage.getItem("aiscore")) + 1
     );
-    aiscoreNumber.innerText = localStorage.getItem("aiscore");
+    aiscoreNumber.innerText = parseInt(localStorage.getItem("aiscore"));
   }
 }
 
@@ -159,6 +158,6 @@ btnClose.addEventListener("click", () => {
 });
 
 window.addEventListener("beforeunload", () => {
-  localStorage.setItem("score", localStorage.getItem("score") || 0);
-  localStorage.setItem("aiscore", localStorage.getItem("aiscore") || 0);
+  localStorage.setItem("score", localStorage.getItem("score") || "0");
+  localStorage.setItem("aiscore", localStorage.getItem("aiscore") || "0");
 });
