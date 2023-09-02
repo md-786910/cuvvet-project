@@ -31,24 +31,23 @@ const resultText = document.querySelector(".results__text");
 
 const playAgainBtn = document.querySelector(".play-again");
 
-
 const scoreNumber = document.querySelector(".score__number");
 const aiscoreNumber = document.querySelector(".aiscore__number");
 
 if (localStorage.getItem("score")) {
-  humanScore = parseInt(localStorage.getItem("score"));
+  let humanScore = parseInt(localStorage.getItem("score") || "0");
+  console.log(humanScore);
+  console.log(typeof humanScore);
   scoreNumber.textContent = humanScore;
-}
-else{
+} else {
   localStorage.setItem("score", 0);
 }
 
 if (localStorage.getItem("aiscore")) {
-  computerScore = parseInt(localStorage.getItem("aiscore"));
+  let computerScore = parseInt(localStorage.getItem("aiscore") || "0");
   aiscoreNumber.textContent = computerScore;
-}
-else{
-  localStorage.setItem("score",0);
+} else {
+  localStorage.setItem("score", 0);
 }
 
 // Game Logic
@@ -94,22 +93,21 @@ function displayWinner(results) {
     if (userWins) {
       resultText.innerText = "you win";
       const nextButton = document.querySelector(".next-button");
-      nextButton.style.display = 'block';
-      
+      nextButton.style.display = "block";
+
       resultDivs[0].classList.toggle("winner");
       keepScore(1);
-       
     } else if (aiWins) {
       resultText.innerText = "you lose";
       const nextButton = document.querySelector(".next-button");
-      nextButton.style.display = 'none';
-       
+      nextButton.style.display = "none";
+
       resultDivs[1].classList.toggle("winner");
       keepScore(-1);
     } else {
       resultText.innerText = "draw";
       const nextButton = document.querySelector(".next-button");
-      nextButton.style.display = 'none';
+      nextButton.style.display = "none";
     }
     resultWinner.classList.toggle("hidden");
     resultsDiv.classList.toggle("show-winner");
@@ -122,18 +120,22 @@ function isWinner(results) {
 }
 
 function keepScore(point) {
-  if(point == 1){
-    localStorage.setItem("score", parseInt(parseInt(localStorage.getItem("score")) + point));
+  if (point == 1) {
+    localStorage.setItem(
+      "score",
+      parseInt(localStorage.getItem("score")) + point
+    );
     scoreNumber.innerText = localStorage.getItem("score");
-    
-  }
-  else{
-    localStorage.setItem("aiscore", parseInt(parseInt(localStorage.getItem("aiscore")) + 1));
+  } else {
+    localStorage.setItem(
+      "aiscore",
+      parseInt(localStorage.getItem("aiscore")) + 1
+    );
     aiscoreNumber.innerText = localStorage.getItem("aiscore");
   }
 }
 
-// Play Again 
+// Play Again
 playAgainBtn.addEventListener("click", () => {
   gameDiv.classList.toggle("hidden");
   resultsDiv.classList.toggle("hidden");
@@ -156,8 +158,7 @@ btnClose.addEventListener("click", () => {
   modalRules.classList.toggle("show-modal");
 });
 
-
 window.addEventListener("beforeunload", () => {
-  localStorage.setItem("score", localStorage.getItem("score"));
-  localStorage.setItem("aiscore", localStorage.getItem("aiscore"));
+  localStorage.setItem("score", localStorage.getItem("score") || 0);
+  localStorage.setItem("aiscore", localStorage.getItem("aiscore") || 0);
 });
