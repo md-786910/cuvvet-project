@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display:block;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background-color: #8cc461;
+    /* overflow: hidden; */
+  }
+  
+  .win {
+    text-align: center;
+    background-color: #8cc461;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #8cc461;
+    top:500px;
+    
+  
+  }
+  h1{
+    color: #FFFFFF;
+     font-size: 100px;
+     position: relative;
+     top:190px;
+    
+  
+  
+  }
+  p{
+    position:relative;
+    color:#FFFFFF;
+    font-size: 40px;
+    top:140px;
+    left:10px;
+    
+  }
+  
+  @keyframes confetti {
+    0%, 100% {
+      transform: translateY(0);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(-100px);
+      opacity: 1;
+    }
+  }
+  
+  
+  #play-again-button{
+    position: relative;
+    top:80px;
+    background-color: #FFFFFF;
+    border:#FFFFFF;
+    color:#6B6B6B;
+   font-size:10px;
+   width:100px;
+   height:30px;
+   border-radius: 5px;
+   left:700px;
+  
+  
+  }
+  .winner-image{
+    position: relative;
+    height: 300px;
+    width:300px;
+    top:270px;
+    left:270px;
+  }
+  .B1{
+    position: relative;
+    width:100px;
+    height:100px;
+    right:180px;
+    bottom:-100px;
+  }
+  .B2{
+    position: relative;
+    width:100px;
+    height:100px;
+    left:80px;
+    bottom:40px;
+  }
+  .B3{
+    position: relative;
+    width:100px;
+    height:100px;
+   top:200px;
+   left: 50px;
+  }
+  .M{position: relative;
+    width:70px;
+    height:70px;
+    right:440px;
+    bottom:30px;
+  
+  }
+  .C1{position: relative;
+    width:40px;
+    height:40px;
+    right:440px;
+    bottom:120px;
+  
+  }
+  .C2{position: relative;
+    width:40px;
+    height:40px;
+    right:390px;
+    bottom:70px;
+  
+  }
+  .C3{
+    position: relative;
+    width:40px;
+    height:40px;
+    right:150px;
+    bottom:0px;
+  }
+  .C4{position: relative;
+    width:40px;
+    height:40px;
+    right:600px;
+    top:200px;
+    
+    
+  
+  }
+  
+  
+    
